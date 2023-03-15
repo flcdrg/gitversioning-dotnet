@@ -54,4 +54,4 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Env
-      run: printenv
+      run: printenv | grep "NBGV"
