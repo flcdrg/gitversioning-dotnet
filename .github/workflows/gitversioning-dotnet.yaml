@@ -53,8 +53,13 @@ jobs:
 
     - name: Build
       run: |
-        dotnet build --no-restore -clp:PerformanceSummary
+        dotnet build --no-restore -clp:PerformanceSummary /bl
         dotnet run --no-build --project console
 
     - name: Env
       run: printenv | grep "NBGV"
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: binlog
+        path: msbuild.binlog
